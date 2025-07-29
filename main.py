@@ -4,6 +4,8 @@ from flask import Flask, request
 
 API_TOKEN = os.environ.get('API_TOKEN')
 bot = telebot.TeleBot(API_TOKEN)
+bot.remove_webhook()
+bot.set_webhook(url="https://telegram-bot-qgf5.onrender.com/" + API_TOKEN)
 app = Flask(__name__)
 
 @app.route('/' + API_TOKEN, methods=['POST'])
