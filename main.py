@@ -2,7 +2,7 @@ import telebot
 import os
 from flask import Flask, request
 
-API_TOKEN = os.environ.get('BOT_TOKEN')
+API_TOKEN = os.environ.get('API_TOKEN')
 bot = telebot.TeleBot(API_TOKEN)
 app = Flask(__name__)
 
