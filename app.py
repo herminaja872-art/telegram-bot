@@ -3,7 +3,7 @@ import telegram
 import logging
 import os
 
-TOKEN = os.environ.get(8324131113:AAFQbIs_LAIe08c1xMFP75q1eFltASLHvNA) or "sem_daj_token_ak_nemas_env"
+TOKEN = os.environ.get/(8324131113:AAFQbIs_LAIe08c1xMFP75q1eFltASLHvNA) or "sem_daj_token_ak_nemas_env"
 bot = telegram.Bot(token=TOKEN)
 
 app = Flask(__name__)
