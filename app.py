@@ -5,7 +5,7 @@ import os
 TOKEN = "8324131113:AAFQbIs_LAIe08c1..."
 bot = telebot.TeleBot(TOKEN)
 
-WEBHOOK_URL = f"https://telegram-bot-qgf5.onrender.com/{TOKEN}"
+WEBHOOK_URL = f"https://telegram-bot-qgf5.onrender.com/{TOKEN}/"
 bot.remove_webhook()
 bot.set_webhook(url=WEBHOOK_URL)
 
