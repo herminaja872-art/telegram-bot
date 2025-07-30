@@ -1,19 +1,26 @@
 from flask import Flask, request
-import telegram
+import telebot
 
 TOKEN = "8324131113:AAFQbIs_LAIe08c1xMFP75q1eFltASLHvNA"
-bot = telegram.Bot(token=TOKEN)
-
+bot = telebot.TeleBot(TOKEN)
 app = Flask(__name__)
 
-@app.route('/')
-def home():
-    return "Bot is running!"
+# Odpoveď na /start
+@bot.message_handler(commands=['start'])
+def start_message(message):
+    bot.reply_to(message, "✅ Hello! Bot is working.")
 
-@app.route(f"/{TOKEN}", methods=["POST"])
-def receive_update():
-    update = telegram.Update.de_json(request.get_json(force=True), bot)
-    chat_id = update.message.chat.id
-    text = update.message.text
-    bot.send_message(chat_id=chat_id, text=f"You said: {text}")
-    return "OK"
+# Webhook handler
+@app.route(f'/{TOKEN}', methods=['POST'])
+def webhook():
+    update = telebot.types.Update.de_json(request.get_json(force=True))
+    bot.process_new_updates([update])
+    return "OK", 200
+
+# Úvodná stránka
+@app.route("/", methods=["GET"])
+def index():
+    return "Bot is running!", 200
+
+if __name__ == '__main__':
+    app.run(debug=True)
