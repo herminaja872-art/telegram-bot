@@ -1,9 +1,9 @@
 from flask import Flask, request
 import telegram
 import logging
-import os
 
-TOKEN = os.environ.get/(8324131113:AAFQbIs_LAIe08c1xMFP75q1eFltASLHvNA) or "sem_daj_token_ak_nemas_env"
+# PRIAMO ZADANÝ TOKEN
+TOKEN = "8324131113:AAFQbIs_LAIe08c1xMFP75q1eFltASLHvNA"
 bot = telegram.Bot(token=TOKEN)
 
 app = Flask(__name__)
